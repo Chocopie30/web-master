@@ -8,4 +8,4 @@ if (result % 3 == 0) {
   console.log(result + "는 3의 배수입니다");
 } else {
   console.log(result + "는 3의 배수가 아닙니다");
-}console.log("여기 수정됨");
+}
