@@ -25,8 +25,8 @@ let students = [{
   }
 ];
 
-let str  = `<ul>`;
-for( let i =0; i < 3; i++) {
+let str = `<ul>`;
+for (let i = 0; i < 3; i++) {
   console.log(students[i].stdName);
   str += `<li>학생번호 : ${students[i].stdNo}, 이름: ${students[i].stdName}</li>`
 }

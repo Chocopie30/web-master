@@ -44,7 +44,7 @@ document.querySelector('.addBtn').addEventListener('click', function () {
   let score = document.querySelector('#score').value;
   for (let i = 0; i < nodeList.length; i++) {
     // console.dir(nodeList[i]);
-    if(nodeList[i].children[0].innerHTML == sno) {
+    if (nodeList[i].children[0].innerHTML == sno) {
       nodeList[i].children[2].innerHTML = score;
     }
   }
