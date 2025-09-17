@@ -52,3 +52,13 @@ xhtp.onload = function () {
     document.querySelector('#data-container').appendChild(div);
   })
 };
+
+const person = {
+  name: 'Hong',
+  birth: '1999-09-09',
+  phone: '010-9999-0909'
+}
+person.name;
+person['birth'];
+const prop = 'phone';
+person[prop];
