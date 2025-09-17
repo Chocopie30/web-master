@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif, '맑은 고딕';
+      background-color: #f4f4f4;
+      padding: 20px;
+    }
+
+    /* Form container */
+    .container {
+      background-color: #fff;
+      padding: 20px;
+      margin-bottom: 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .container form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .container input[type="text"] {
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .container input[type="submit"] {
+      padding: 10px 20px;
+      background-color: #000000;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .container input[type="submit"]:hover {
+      background-color: #3d3d3d;
+    }
+
+    /* Data container styling */
+    .data-container {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .data-container div {
+      background-color: #fff;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .data-id {
+      font-weight: bold;
+      color: #ffffff;
+      background-color: rgb(36, 36, 36);
+      display: inline-block;
+      padding: 5px 10px;
+      border-radius: 20%;
+    }
+
+    .data-title {
+      font-size: 18px;
+      font-weight: 550;
+      color: #333;
+    }
+
+    .data-author {
+      font-style: italic;
+      color: #777;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <form action="#" method="post">
+      <input type="text" name="title" id="title" placeholder="title 입력">
+      <input type="text" name="author" id="author" placeholder="author 입력">
+      <input type="submit" value="추가">
+    </form>
+  </div>
+  <div class="data-container" id="data-container">
+
+  </div>
+
+  <script src="db.js"></script>
+</body>
+
+</html>

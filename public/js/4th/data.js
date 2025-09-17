@@ -15,5 +15,7 @@ const json = `[{"id":1,"first_name":"Ronnie","last_name":"Stuckey","email":"rstu
 {"id":15,"first_name":"Cinda","last_name":"Kundt","email":"ckundte@hibu.com","gender":"Female","salary":7344}]`;
 // json문자열
 
-const data = JSON.parse(json);
+const data = JSON.parse(json); //배열 형식으로 변경
 console.log(data);
+const jsonObj = JSON.stringify(data); //JSON 형식으로 변경
+console.log(jsonObj);
