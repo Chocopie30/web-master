@@ -7,84 +7,154 @@
   <title>Document</title>
   <style>
     body {
-      font-family: Arial, sans-serif, '맑은 고딕';
-      background-color: #f4f4f4;
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: #f4f6f9;
+      margin: 0;
       padding: 20px;
     }
 
-    /* Form container */
+    /* ====== Form Style ====== */
     .container {
-      background-color: #fff;
+      max-width: 700px;
+      margin: 0 auto 20px auto;
+      background: #ffffff;
       padding: 20px;
-      margin-bottom: 30px;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+      border: 1px solid #e0e0e0;
     }
 
     .container form {
       display: flex;
-      flex-direction: column;
-      gap: 15px;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: space-between;
     }
 
     .container input[type="text"] {
-      padding: 10px;
-      font-size: 16px;
+      flex: 1;
+      min-width: 200px;
+      padding: 10px 14px;
       border: 1px solid #ccc;
-      border-radius: 5px;
-      width: 100%;
-      box-sizing: border-box;
+      border-radius: 6px;
+      font-size: 15px;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .container input[type="text"]:focus {
+      border-color: #000000;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+      outline: none;
     }
 
     .container input[type="submit"] {
-      padding: 10px 20px;
-      background-color: #000000;
-      color: white;
+      padding: 10px 18px;
       border: none;
-      border-radius: 5px;
+      border-radius: 6px;
+      background: #000000;
+      color: #fff;
+      font-size: 15px;
+      font-weight: bold;
       cursor: pointer;
-      font-size: 16px;
+      transition: background 0.3s ease;
     }
 
     .container input[type="submit"]:hover {
-      background-color: #3d3d3d;
+      background: #000000;
     }
 
-    /* Data container styling */
+    /* ====== Data List Style ====== */
     .data-container {
+      max-width: 700px;
+      margin: auto;
       display: flex;
       flex-direction: column;
-      gap: 15px;
+      gap: 12px;
     }
 
-    .data-container div {
-      background-color: #fff;
-      padding: 15px;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+    /* 게시글 박스: 세로가 아니라 가로로 한 줄! */
+    .data-container>div {
+      background: #ffffff;
+      border-radius: 10px;
+      border: 1px solid #e0e0e0;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+      padding: 14px 20px;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
+    /* 게시글 내용 - 한 줄 플렉스 */
+    .data-container>div>.data-id,
+    .data-container>div>.data-title,
+    .data-container>div>.data-author {
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: 16px;
+      white-space: nowrap;
+    }
+
+    /* 게시글 아이디 스타일 */
     .data-id {
       font-weight: bold;
       color: #ffffff;
-      background-color: rgb(36, 36, 36);
-      display: inline-block;
-      padding: 5px 10px;
-      border-radius: 20%;
+      background: #000000;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 14px;
     }
 
+    /* 게시글 제목 스타일 */
     .data-title {
-      font-size: 18px;
-      font-weight: 550;
+      font-size: 17px;
+      font-weight: 600;
       color: #333;
     }
 
+    /* 게시글 작성자 스타일 */
     .data-author {
+      font-size: 14px;
+      color: #666;
       font-style: italic;
-      color: #777;
+    }
+
+    /* 댓글 영역 */
+    .comments {
+      margin-top: 12px;
+      padding-left: 20px;
+      border-left: 3px solid #e0e0e0;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    /* 댓글 하나하나 */
+    .comments>div {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      background: #f9f9f9;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 10px 14px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+    }
+
+    /* 댓글 아이디 */
+    .comment-id {
+      font-weight: bold;
+      font-size: 13px;
+      color: #ffffff;
+      background: #000000;
+      padding: 2px 8px;
+      border-radius: 6px;
+      flex-shrink: 0;
+    }
+
+    /* 댓글 내용 */
+    .comment-content {
+      font-size: 14px;
+      color: #444;
+      line-height: 1.4;
     }
   </style>
 </head>
@@ -100,6 +170,10 @@
   <div class="data-container" id="data-container">
 
   </div>
+  <div class="comments">
+
+  </div>
+
 
   <script src="db.js"></script>
 </body>
