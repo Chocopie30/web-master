@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Update</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h3>수정화면</h3>
+  <div class="addStudents">
+    <form action="">
+      <label for="sno">학생번호</label>
+      <input disabled type="text" name="" id="sno">
+      <label for="sname">이름</label>
+      <input type="text" name="" id="sname">
+      <label for="score">점수</label>
+      <input type="text" name="" id="score">
+      <input type="submit" name="" id="btn" value="저장">
+    </form>
+  </div>
+  <script>
+    // 저장이벤트
+    document.querySelector('form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      let changedName = document.getElementById('sname').value;
+      let changedScore = document.getElementById('score').value;
+
+      // data 값을 변경
+      data.forEach(item => {
+        if (item.sno == sno) {
+          item.sname = changedName;
+          item.score = changedScore;
+        }
+      });
+      localStorage.setItem('students', JSON.stringify(data)); // 저장
+      localStorage.removeItem("search");
+      location.href = 'index.html';
+    });
+    // 조회
+    let data = [];
+    let sno = localStorage.getItem('search');
+    if (!sno) {
+      alert('마음대로 들어오지 마세요!')
+      location.href = 'index.html';
+    } else {
+      data = JSON.parse(localStorage.getItem('students'));
+      let result = data.filter(item => item.sno == sno)[0];
+      console.log(result);
+      // 결과를 화면에 출력
+      document.getElementById('sno').value = result.sno;
+      document.getElementById('sname').value = result.sname;
+      document.getElementById('score').value = result.score;
+    }
+  </script>
+</body>
+
+</html>
