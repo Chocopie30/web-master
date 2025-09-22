@@ -1,5 +1,3 @@
-document.querySelector('table').remove();
-
 let str = 'Lorem ipsum dolor sit amet consectetur adipisicing elit Obcaecati vel ipsa alias dolore exercitationem impedit quasi atque Et similique accusantium harum quidem est quasi debitis id assumenda reprehenderit laboriosam ratione.';
 // console.log(str.length); 문장 길이 확인
 let strAry = str.split(' ');

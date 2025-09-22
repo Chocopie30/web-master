@@ -119,15 +119,17 @@
 
     document.querySelector(".login-btn").addEventListener('click', function (e) {
       e.preventDefault();
+      let check = 0;
       for (let i = 0; i < members.length; i++) {
         if (document.querySelector('#username').value == members[i].id &&
           document.querySelector('#password').value == members[i].pass) {
-          location.href = 'index.html';
-          return;
-        } else {
-          alert('다시 입력하세요');
-          return;
+          check = 1;
         }
+      };
+      if (check == 1) {
+        location.href = 'index.html';
+      } else {
+        alert("다시 입력하세요");
       }
     })
     // 입력정보와 멤버 정보 확인후 다른 페이지로 넘겨주기

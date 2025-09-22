@@ -1,6 +1,6 @@
 // 알고 싶은 년도 달력 입력
-let yyyy = 2024,
-  mm = 12;
+let yyyy = 2025,
+  mm = 9;
 
 let today = new Date();
 today.setFullYear(yyyy);
@@ -27,19 +27,15 @@ for (let d = 1; d <= lastDay; d++) {
   let td = document.createElement('td');
   td.innerHTML = d;
   tr.appendChild(td);
+
+  const isHoli = holi.includes(d);
+
   if ((d + spaces) % 7 == 0) {
     td.setAttribute('class', 'sat');
     document.querySelector('tbody').appendChild(tr);
     tr = document.createElement('tr');
-  } else if ((d + spaces) % 7 == 1) {
+  } else if ((d + spaces) % 7 == 1 || isHoli) {
     td.setAttribute('class', 'sun');
   }
-  if (holi[d - 1] != undefined) {
-    console.log(holi[d - 1]);
-  }
-
-  // if (holi[d - 1] == d) {
-  //   td.setAttribute('class', 'sun');
-  // }
 }
 document.querySelector('tbody').appendChild(tr);

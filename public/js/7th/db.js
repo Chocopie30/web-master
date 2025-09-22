@@ -39,9 +39,6 @@ document.forms['postForm'].addEventListener('submit', function (e) {
       div.appendChild(btn);
 
       document.querySelector('#data-container').appendChild(div);
-
-      document.querySelector('#data-container').appendChild(div);
-
       document.querySelector('#title').value = '';
       document.querySelector('#author').value = '';
 
