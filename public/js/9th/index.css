@@ -1,0 +1,264 @@
+:root {
+  --bg: #f5f7fb;
+  --card: #ffffff;
+  --primary: #000000;
+  --muted: #6b7280;
+  --radius: 12px;
+  --gap: 16px;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+
+* {
+  box-sizing: border-box
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(180deg, #eef2ff 0%, var(--bg) 100%);
+  padding: 32px;
+  color: #111827;
+}
+
+
+.card {
+  width: 100%;
+  max-width: 720px;
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: 0 8px 30px rgba(15, 23, 42, 0.08);
+  padding: 24px;
+  border: 1px solid rgba(15, 23, 42, 0.04);
+}
+
+
+h1,
+h2 {
+  margin: 0 0 8px 0;
+  font-size: 20px
+}
+
+h3 {
+  background-color: white;
+  border-radius: 5px;
+  padding: 15px;
+  margin-top: 10px;
+  box-shadow: 0 8px 30px rgba(15, 23, 42, 0.08);
+  font-size: large;
+  font-weight: bold;
+}
+
+form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--gap);
+  align-items: start;
+}
+
+
+label {
+  display: block;
+  font-size: 13px;
+  margin-bottom: 2px;
+  color: #111827;
+  font-weight: 600;
+}
+
+
+.field {
+  display: flex;
+  flex-direction: column;
+}
+
+
+input[type="text"],
+input[type="number"],
+input[type="date"],
+select {
+  align-items: center;
+  grid-column: 1 / -1;
+  margin-top: 6px;
+}
+
+input {
+  border: 1px solid #aaa;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+
+button {
+  appearance: none;
+  border: 0;
+  padding: 10px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+
+.btn-submit {
+  background: #000000;
+  color: white;
+  box-shadow: 0 6px 18px rgba(37, 99, 235, 0.18);
+}
+
+
+.btn-reset {
+  background: transparent;
+  color: var(--muted);
+  border: 1px solid rgba(15, 23, 42, 0.05);
+}
+
+/* result area */
+.result {
+  margin-top: 16px;
+  padding: 12px;
+  border-radius: 10px;
+  background: #f8fafc;
+  border: 1px dashed rgba(15, 23, 42, 0.04);
+  font-family: monospace;
+  font-size: 13px;
+}
+
+
+@media (max-width:640px) {
+  form {
+    grid-template-columns: 1fr
+  }
+
+  .actions {
+    justify-content: stretch
+  }
+}
+
+.search-container {
+  width: 100%;
+  max-width: 720px;
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: 0 8px 30px rgba(15, 23, 42, 0.08);
+  padding: 24px;
+  border: 1px solid rgba(15, 23, 42, 0.04);
+  margin-top: 20px;
+}
+
+.search-container h2 {
+  margin-top: 0;
+  margin-bottom: 16px;
+  font-size: 20px;
+  font-weight: 600;
+  color: #111827;
+  text-align: center;
+}
+
+.search-container form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--gap);
+}
+
+.search-container .form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.search-container label {
+  font-size: 13px;
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.search-container input {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  transition: border-color 0.2s;
+}
+
+.search-container input:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.search-container .search-btn {
+  grid-column: 1 / -1;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  background-color: var(--primary);
+  color: white;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin-top: 8px;
+}
+
+.search-container .search-btn:hover {
+  background-color: #5c5c5c;
+  /* 좀 더 진한 primary 색 */
+}
+
+.table {
+  width: 100%;
+  max-width: 720px;
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(15, 23, 42, 0.08);
+  margin-top: 5px;
+  background: var(--card);
+}
+
+/* 테이블 헤더 */
+.table thead {
+  background-color: #f3f4f6;
+  /* 살짝 밝은 배경 */
+}
+
+.table thead th {
+  font-weight: 600;
+  color: #111827;
+  text-align: left;
+  padding: 12px 16px;
+  font-size: 14px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* 테이블 바디 */
+.table tbody tr {
+  transition: background-color 0.2s;
+  cursor: default;
+}
+
+.table tbody tr:hover {
+  background-color: rgba(59, 130, 246, 0.1);
+  /* hover 색상 */
+}
+
+.table tbody td {
+  padding: 12px 16px;
+  font-size: 14px;
+  color: #374151;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* 마지막 행 border 제거 */
+.table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* 모바일 반응형 */
+@media (max-width: 640px) {
+  .search-container form {
+    grid-template-columns: 1fr;
+  }
+}
