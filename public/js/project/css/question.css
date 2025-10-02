@@ -1,0 +1,216 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background-color: #EAEAEA;
+}
+
+header {
+  padding: 20px;
+  padding-top: 10px;
+  font-size: 24px;
+  font-weight: bold;
+  background-color: #A8D5BA;
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.logo img {
+  width: 25px;
+  /* 아이콘 크기 */
+  height: 24px;
+  margin-right: 6px;
+}
+
+.qna-main {
+  display: flex;
+  justify-content: center;
+  margin: 30px 0;
+}
+
+.qna-form {
+  background: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  width: 60%;
+}
+
+.qna-form h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 93%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 15px;
+}
+
+
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.btn-submit {
+  background-color: #6cc58c;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.btn-cancel {
+  background-color: #ccc;
+  color: #333;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.btn-submit:hover {
+  background-color: #58a878;
+}
+
+.btn-cancel:hover {
+  background-color: #aaa;
+}
+
+/* 로그인 / 로그아웃 박스 */
+.auth-box {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+  font-size: 15px;
+}
+
+.auth-box a,
+#logoutBtn {
+  padding: 5px 12px;
+  border-radius: 20px;
+  background-color: #7AC79E;
+  color: #333333;
+  border: 1px solid #7AC79E;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.2s ease-in-out;
+}
+
+.auth-box a:hover,
+#logoutBtn:hover {
+  background-color: #333333;
+  color: #A8D5BA;
+  border: 1px solid #333333;
+}
+
+a {
+  text-decoration: none;
+  color: #333333;
+}
+
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  /* 좌/우 배치 */
+  align-items: center;
+  background: #61a87e;
+  padding: 10px 30px;
+}
+
+.nav-left,
+.nav-right {
+  display: flex;
+  gap: 15px;
+}
+
+nav a {
+  text-decoration: none;
+  padding: 6px 14px;
+  background: #7AC79E;
+  border-radius: 20px;
+  /* pill 버튼 느낌 */
+  color: #333333;
+  border: 1px solid #7AC79E;
+  font-weight: 500;
+  transition: 0.2s ease-in-out;
+}
+
+nav a:hover {
+  background: #000000;
+  /* hover 시 배경 반전 */
+  border: 1px solid #000000;
+  color: #A8D5BA;
+}
+
+/* 카테고리 드롭다운 */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 40px;
+  left: 0;
+  flex-direction: column;
+  gap: 10px;
+  background: #A8D5BA;
+  padding: 10px;
+  border-radius: 10px;
+  z-index: 100;
+}
+
+.dropdown-content a {
+  background: #7AC79E;
+  border-radius: 10px;
+  padding: 5px 10px;
+  display: block;
+}
+
+.dropdown-content.show {
+  display: flex;
+}
+
+
+.bgcolor {
+  background: #A8D5BA;
+}
+
+main {
+  padding: 20px;
+}
+
+
+footer {
+  margin-top: 40px;
+  padding: 20px;
+  border-top: 1px solid #7AC79E;
+}

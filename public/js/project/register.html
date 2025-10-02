@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <title>피망마켓 회원가입</title>
+  <link rel="stylesheet" href="css/register.css">
+</head>
+
+<body>
+  <header>
+    <a href="main.html" class="logo">
+      <img src="/js/project/img/icon_pep.png" alt="피망 아이콘">
+      피망마켓</a>
+  </header>
+  <div class="signup-box">
+    <form>
+      <div class="input-group">
+        <label for="userId">아이디</label>
+        <input type="text" id="userId" name="userId" required>
+      </div>
+
+      <div class="input-group">
+        <label for="userPw">비밀번호</label>
+        <input type="password" id="userPw" name="userPw" required>
+      </div>
+
+      <div class="input-group">
+        <label for="userName">이름</label>
+        <input type="text" id="userName" name="userName" required>
+      </div>
+
+      <div class="input-group">
+        <label for="userTel">전화번호</label>
+        <input type="tel" id="userTel" name="userTel" placeholder="010-1234-5678">
+      </div>
+
+      <div class="input-group">
+        <label for="userAddress">주소</label>
+        <input type="text" id="userAddress" name="userAddress">
+      </div>
+
+      <div class="btn-group">
+        <button type="submit" class="btn signup-btn">회원가입</button>
+        <button type="reset" class="btn reset-btn">초기화</button>
+      </div>
+    </form>
+  </div>
+  <script src="js/register.js"></script>
+</body>
+
+</html>

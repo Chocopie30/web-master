@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <title>피망마켓 Q&A</title>
+  <link rel="stylesheet" href="css/qna.css">
+</head>
+
+<body>
+  <header>
+    <div class="auth-box">
+      <a href="register.html">회원가입</a>
+      <a href="login.html">로그인</a>
+    </div>
+    <a href="main.html" class="logo">
+      <img src="/js/project/img/icon_pep.png" alt="피망 아이콘">
+      피망마켓</a>
+  </header>
+  <div class="bgcolor">
+
+    <nav>
+      <div class="nav-left">
+        <div class="dropdown">
+          <a href="javascript:void(0)" id="category-btn">카테고리 ▼</a>
+          <div class="dropdown-content" id="category-menu">
+            <a href="cate.html" data-cate="3">음식</a>
+            <a href="cate.html" data-cate="2">전자제품</a>
+            <a href="cate.html" data-cate="1">잡동사니</a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-right">
+        <a href="QnA.html">질문&답변</a>
+        <a href="order.html">주문내역</a>
+      </div>
+    </nav>
+
+  </div>
+  <main>
+    <h2>질문&답변</h2>
+    <table class="qna-table">
+      <tr>
+        <th>질문 번호</th>
+        <th>제목</th>
+        <th>작성자</th>
+      </tr>
+    </table>
+  </main>
+  <button id="qeustion_btn">질문하기</button>
+  <footer>
+    <p>ChocoPie_J</p>
+    <address>YD 4, Deagu, South Korea</address>
+
+  </footer>
+
+  <script src="js/qna.js"></script>
+</body>
+
+</html>

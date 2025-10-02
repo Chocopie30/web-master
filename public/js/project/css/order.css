@@ -1,0 +1,175 @@
+ body {
+   margin: 0;
+   font-family: Arial, sans-serif;
+   text-align: center;
+   background-color: #EAEAEA;
+ }
+
+ header {
+   padding: 20px;
+   padding-top: 10px;
+   font-size: 24px;
+   font-weight: bold;
+   background-color: #A8D5BA;
+ }
+
+ .logo {
+   display: inline-flex;
+   align-items: center;
+   font-size: 24px;
+   font-weight: bold;
+ }
+
+ .logo img {
+   width: 25px;
+   /* 아이콘 크기 */
+   height: 24px;
+   margin-right: 6px;
+ }
+
+ /* 로그인 / 로그아웃 박스 */
+ .auth-box {
+   display: flex;
+   justify-content: flex-end;
+   align-items: center;
+   gap: 10px;
+   font-size: 15px;
+ }
+
+ .auth-box a,
+ #logoutBtn {
+   padding: 5px 12px;
+   border-radius: 20px;
+   background-color: #7AC79E;
+   color: #333333;
+   border: 1px solid #7AC79E;
+   text-decoration: none;
+   font-weight: 500;
+   transition: all 0.2s ease-in-out;
+ }
+
+ .auth-box a:hover,
+ #logoutBtn:hover {
+   background-color: #333333;
+   color: #A8D5BA;
+   border: 1px solid #333333;
+ }
+
+ a {
+   text-decoration: none;
+   color: #333333;
+ }
+
+ nav {
+   display: flex;
+   justify-content: space-between;
+   /* 좌/우 배치 */
+   align-items: center;
+   background: #61a87e;
+   padding: 10px 30px;
+ }
+
+ .nav-left,
+ .nav-right {
+   display: flex;
+   gap: 15px;
+ }
+
+ nav a {
+   text-decoration: none;
+   padding: 6px 14px;
+   background: #7AC79E;
+   border-radius: 20px;
+   /* pill 버튼 느낌 */
+   color: #333333;
+   border: 1px solid #7AC79E;
+   font-weight: 500;
+   transition: 0.2s ease-in-out;
+ }
+
+ nav a:hover {
+   background: #000000;
+   /* hover 시 배경 반전 */
+   border: 1px solid #000000;
+   color: #A8D5BA;
+ }
+
+ /* 카테고리 드롭다운 */
+ .dropdown {
+   position: relative;
+ }
+
+ .dropdown-content {
+   display: none;
+   position: absolute;
+   top: 40px;
+   left: 0;
+   flex-direction: column;
+   gap: 10px;
+   background: #A8D5BA;
+   padding: 10px;
+   border-radius: 10px;
+   z-index: 100;
+ }
+
+ .dropdown-content a {
+   background: #7AC79E;
+   border-radius: 10px;
+   padding: 5px 10px;
+   display: block;
+ }
+
+ .dropdown-content.show {
+   display: flex;
+ }
+
+
+ .bgcolor {
+   background: #A8D5BA;
+ }
+
+
+ h2 {
+   margin: 30px 0 10px;
+ }
+
+ .order-list {
+   max-width: 800px;
+   margin: 20px auto;
+   display: flex;
+   flex-direction: column;
+   gap: 15px;
+ }
+
+ .order-item {
+   display: flex;
+   align-items: center;
+   gap: 15px;
+   padding: 12px;
+   border: 1px solid #7AC79E;
+   border-radius: 10px;
+   background: #fff;
+ }
+
+ .order-item img {
+   border-radius: 6px;
+   border: 1px solid #ccc;
+ }
+
+ .order-item .name {
+   flex: 1;
+   font-weight: bold;
+ }
+
+ .order-item .quantity,
+ .order-item .seller {
+   color: #555;
+   font-size: 14px;
+ }
+
+
+ footer {
+   margin-top: 40px;
+   padding: 20px;
+   border-top: 1px solid #7AC79E;
+ }

@@ -1,0 +1,88 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #EAEAEA;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+}
+
+header a {
+  text-decoration: none;
+  color: #333333;
+  margin-top: 30px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.logo img {
+  width: 25px;
+  /* 아이콘 크기 */
+  height: 24px;
+  margin-right: 6px;
+}
+
+.signup-box {
+  margin-top: 20px;
+  width: 340px;
+  padding: 20px;
+  border: 2px solid #7AC79E;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.input-group {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-bottom: 5px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+input {
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+}
+
+.btn-group {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+.btn {
+  width: 48%;
+  padding: 10px;
+  font-size: 14px;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.signup-btn {
+  background: #A8D5BA;
+  color: #333;
+}
+
+.reset-btn {
+  background: #ff9c95;
+  color: #333;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}

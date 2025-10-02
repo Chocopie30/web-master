@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <title>상품 상세페이지</title>
+  <link rel="stylesheet" href="css/product.css">
+</head>
+
+<body>
+  <header>
+    <div class="auth-box">
+      <a href="register.html">회원가입</a>
+      <a href="login.html">로그인</a>
+    </div>
+    <a href="main.html" class="logo">
+      <img src="/js/project/img/icon_pep.png" alt="피망 아이콘">
+      피망마켓
+    </a>
+  </header>
+
+  <div class="bgcolor">
+    <div class="top-bar">
+      <div></div>
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="검색어 입력">
+        <button id="searchBtn">검색</button>
+      </div>
+    </div>
+
+    <nav>
+      <div class="nav-left">
+        <div class="dropdown">
+          <a href="javascript:void(0)" id="category-btn">카테고리 ▼</a>
+          <div class="dropdown-content" id="category-menu">
+            <a href="cate.html" data-cate="3">음식</a>
+            <a href="cate.html" data-cate="2">전자제품</a>
+            <a href="cate.html" data-cate="1">잡동사니</a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-right">
+        <a href="QnA.html">질문&답변</a>
+        <a href="order.html">주문내역</a>
+      </div>
+    </nav>
+  </div>
+
+  <div class="main">
+    <!-- ✅ 상단에 상품명 (그리드 밖, 전체 폭) -->
+    <div class="product-header">
+      <h2 class="product-title"></h2>
+      <button id="editProductBtn" class="edit-btn">상품 수정</button>
+    </div>
+
+    <!-- ✅ 좌우 2열 그리드 -->
+    <main class="product-detail">
+      <div class="product-left">
+        <img class="product-img" src="" alt="상품 이미지">
+      </div>
+
+      <div class="product-right">
+        <p class="product-desc"></p>
+
+        <div class="info-card">
+          <p>카테고리: <span class="product-cate"></span></p>
+          <p>재고 수량: <span class="product-count"></span></p>
+          <p>가격: <span class="product-price"></span></p>
+        </div>
+
+        <!-- ✅ 구매 영역을 한 줄로 -->
+        <div class="order-box">
+          <label for="orderCount" class="order-label">구매 수량</label>
+          <input type="number" id="orderCount" min="1" value="1">
+          <button id="orderBtn">구매</button>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <p>ChocoPie_J</p>
+      <address>YD 4, Deagu, South Korea</address>
+    </footer>
+  </div>
+
+  <script src="js/product.js"></script>
+</body>
+
+</html>

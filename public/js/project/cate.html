@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <title>피망마켓</title>
+  <link rel="stylesheet" href="css/cate.css">
+</head>
+
+<body>
+  <!-- 피망이미지 -->
+  <header>
+    <div class="auth-box">
+      <a href="register.html">회원가입</a>
+      <a href="login.html">로그인</a>
+    </div>
+    <a href="main.html" class="logo">
+      <img src="/js/project/img/icon_pep.png" alt="피망 아이콘">
+      피망마켓</a>
+  </header>
+  <div class="bgcolor">
+
+    <div class="top-bar">
+      <div></div>
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="검색어 입력">
+        <button id="searchBtn">검색</button>
+      </div>
+
+    </div>
+
+    <nav>
+      <div class="nav-left">
+        <div class="dropdown">
+          <a href="javascript:void(0)" id="category-btn">카테고리 ▼</a>
+          <div class="dropdown-content" id="category-menu">
+            <a href="cate.html" data-cate="3">음식</a>
+            <a href="cate.html" data-cate="2">전자제품</a>
+            <a href="cate.html" data-cate="1">잡동사니</a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-right">
+        <a href="QnA.html">질문&답변</a>
+        <a href="order.html">주문내역</a>
+      </div>
+    </nav>
+
+  </div>
+  <div class="main">
+    <h3>카테고리 하위</h3>
+    <div class="products-container">
+
+    </div>
+
+    <footer>
+      <p>ChocoPie_J</p>
+      <address>YD 4, Deagu, South Korea</address>
+    </footer>
+  </div>
+  <script src="js/cate.js"></script>
+
+</body>
+
+</html>
