@@ -179,7 +179,6 @@
   }
 
   #editProductForm button {
-    margin-top: 10px;
     padding: 12px;
     background: #7AC79E;
     border: none;
@@ -194,6 +193,31 @@
     background: #333;
     color: #A8D5BA;
   }
+
+  .img-row {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+#currentImg {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border: 1px solid #7AC79E;
+  border-radius: 8px;
+  background: #f9f9f9;
+}
+
+.img-controls {
+  display: flex;
+  flex-direction:column;
+  gap: 6px;
+  align-items: flex-start;
+}
+
+.help { font-size: 12px; color: #666; }
+
 
   footer {
     margin-top: 40px;

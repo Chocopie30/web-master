@@ -209,8 +209,8 @@ footer {
 }
 
 .answer-btn {
-  background-color: #4CAF50;
-  color: white;
+  background-color: #7AC79E;
+  color: #333;
   padding: 6px 12px;
   border: none;
   border-radius: 6px;
@@ -218,7 +218,7 @@ footer {
 }
 
 .answer-btn:hover {
-  background-color: #45a049;
+  background-color: #61a87e;
 }
 
 .answer-form {
@@ -248,11 +248,11 @@ footer {
 }
 
 .submit-answer {
-  background-color: #4CAF50;
-  color: white;
+  background-color: #7AC79E;
+  color: #333333;
 }
 
 .cancel-answer {
-  background-color: #f44336;
-  color: white;
+  color: #333333;
+  background-color: #ff9b9d;
 }

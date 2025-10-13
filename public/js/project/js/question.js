@@ -32,11 +32,14 @@ window.addEventListener("DOMContentLoaded", () => {
   // 한 번 쓰고 제거(새로고침/직접접근 방지)
   localStorage.removeItem("fromQnA");
 
+  const loggedInUserName = localStorage.getItem("loggedInUserName");
+
   // ---------- 헤더/로그인 UI ----------
   const authBox = document.querySelector(".auth-box");
   if (authBox) {
     authBox.innerHTML = `
-      <span>${loggedInUser}님, 환영합니다!</span>
+      <span>🎈${loggedInUserName}</span>
+      <a href="infoEdit.html">정보수정</a>
       <a href="#" id="logoutBtn">로그아웃</a>
     `;
     const logoutBtn = document.getElementById("logoutBtn");
@@ -44,6 +47,7 @@ window.addEventListener("DOMContentLoaded", () => {
       logoutBtn.addEventListener("click", (e) => {
         e.preventDefault();
         localStorage.removeItem("loggedInUser");
+      localStorage.removeItem("loggedInUserName");
         alert("질문을 하시려면 로그인을 다시 해주세요.");
         setTimeout(() => (window.location.href = "qna.html"), 80);
       });

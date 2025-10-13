@@ -1,0 +1,170 @@
+/* 기본 레이아웃 (login.css와 톤 매칭) */
+:root{
+  --bg:#EAEAEA;
+  --fg:#333333;
+  --mint:#A8D5BA;
+  --mint-deep:#7AC79E;
+  --card:#fff;
+  --shadow:0 4px 12px rgba(0,0,0,.05);
+}
+
+*{box-sizing:border-box}
+
+body{
+  font-family: Arial, sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+}
+
+header a{
+  text-decoration: none;
+  color: var(--fg);
+  margin-top: 30px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.logo{
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.logo img{
+  width: 25px; height:24px;
+}
+
+/* 페이지 컨테이너 */
+.container{
+  width: min(760px, 94vw);
+  margin: 20px auto 40px;
+}
+
+/* 타이틀 */
+.page-title{
+  font-size: 20px;
+  margin: 12px 0 16px;
+  text-align: center;
+  background-color: #7AC79E;
+  padding: 10px;
+  margin: 0 130px 20px 130px ;
+  border-radius: 8px;
+}
+
+/* 카드 2개 그리드 */
+.find-grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.card{
+  background: var(--card);
+  border: 2px solid var(--mint);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  padding: 18px;
+}
+
+.card-title{
+  margin: 0 0 10px;
+  font-size: 18px;
+}
+
+.card-form{
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.input-group{
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.input-group label{
+  font-size: 14px;
+  font-weight: 700;
+}
+.input-group input{
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #aaa;
+  border-radius: 6px;
+  background: #fff;
+}
+.help{
+  font-size: 12px; color:#666;
+}
+
+/* 버튼 */
+.btn-row{
+  display: flex;
+  gap: 10px;
+  margin-top: 4px;
+}
+.btn{
+  flex: 1;
+  padding: 10px 12px;
+  font-size: 14px;
+  font-weight: 700;
+  border: 0;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform .12s ease, box-shadow .2s ease, background-color .2s ease, opacity .2s ease;
+}
+.btn.primary{
+  background: var(--mint);
+  color: var(--fg);
+}
+.btn.ghost{
+  background: #f4f4f4;
+  color: #333;
+  border: 1px solid #ddd;
+}
+.btn:hover{ transform: translateY(-1px); }
+.btn:active{ transform: translateY(0); opacity:.9; }
+
+/* 하단 링크 카드 */
+.links{
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
+  justify-content: center;
+}
+.link-card{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 2px solid var(--mint);
+  text-decoration: none;
+  color: var(--fg);
+  background: #fff;
+  box-shadow: var(--shadow);
+  transition: transform .15s ease, box-shadow .2s ease, border-color .2s ease, background-color .2s ease;
+  will-change: transform, box-shadow, border-color, background-color;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+.link-card:hover{
+  transform: translateY(-2px);
+  border-color: var(--mint-deep);
+  background-color: #f6fffb;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.08);
+}
+.link-card.primary{
+  background: #F0FBF5;
+  border-color: var(--mint-deep);
+}
+.icon{ font-size: 18px; }
+
+/* 반응형 */
+@media (max-width: 720px){
+  .find-grid{ grid-template-columns: 1fr; }
+  .links{ flex-direction: column; }
+}

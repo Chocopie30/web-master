@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>피망마켓 아이디/비밀번호 찾기</title>
+  <link rel="stylesheet" href="css/find.css" />
+</head>
+<body>
+  <header>
+    <a href="main.html" class="logo">
+      <img src="/js/project/img/icon_pep.png" alt="피망 아이콘" />
+      피망마켓
+    </a>
+  </header>
+
+  <main class="container">
+    <!-- 상단 안내 -->
+    <h1 class="page-title">아이디 / 비밀번호 찾기</h1>
+
+    <!-- 카드 2개 그리드 -->
+    <section class="find-grid">
+      <!-- 아이디 찾기 -->
+      <article class="card">
+        <h2 class="card-title">아이디 찾기</h2>
+        <form id="findIdForm" class="card-form" novalidate>
+          <div class="input-group">
+            <label for="findName">이름</label>
+            <input type="text" id="findName" name="name" required />
+          </div>
+
+          <div class="input-group">
+            <label for="findTel">전화번호</label>
+            <input
+              type="tel"
+              id="findTel"
+              name="tel"
+              placeholder="010-1234-5678"
+              pattern="^0\\d{1,2}-\\d{3,4}-\\d{4}$"
+              required
+            />
+          </div>
+
+          <div class="btn-row">
+            <button type="submit" class="btn primary">아이디 찾기</button>
+            <button type="reset" class="btn ghost">초기화</button>
+          </div>
+        </form>
+      </article>
+
+      <!-- 비밀번호 찾기 -->
+      <article class="card">
+        <h2 class="card-title">비밀번호 찾기</h2>
+        <form id="findPwForm" class="card-form" novalidate>
+          <div class="input-group">
+            <label for="pwUserId">아이디</label>
+            <input type="text" id="pwUserId" name="userId" placeholder="아이디 입력" required />
+          </div>
+
+          <div class="input-group">
+            <label for="pwName">이름</label>
+            <input type="text" id="pwName" name="name" required />
+          </div>
+
+          <div class="btn-row">
+            <button type="submit" class="btn primary">비밀번호 찾기</button>
+            <button type="reset" class="btn ghost">초기화</button>
+          </div>
+        </form>
+      </article>
+    </section>
+
+    <div class="links">
+      <a href="login.html" class="link-card">
+        <span class="icon" aria-hidden="true">🔐</span>
+        <span>로그인</span>
+      </a>
+      <a href="register.html" class="link-card primary">
+        <span class="icon" aria-hidden="true">📝</span>
+        <span>회원가입</span>
+      </a>
+    </div>
+  </main>
+
+  <script src="js/find.js"></script>
+</body>
+</html>

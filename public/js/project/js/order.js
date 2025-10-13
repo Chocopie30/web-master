@@ -13,15 +13,18 @@ window.addEventListener("click", function (e) {
 // ----------------- 로그인 상태 확인 -----------------
 window.addEventListener("DOMContentLoaded", () => {
   const loggedInUser = localStorage.getItem("loggedInUser");
+  const loggedInUserName = localStorage.getItem("loggedInUserName");
   const authBox = document.querySelector(".auth-box");
 
   if (loggedInUser) {
     authBox.innerHTML = `
-      <span>${loggedInUser}님, 환영합니다!</span>
+      <span>🎈${loggedInUserName}</span>
+      <a href="infoEdit.html">정보수정</a>
       <a href="#" id="logoutBtn">로그아웃</a>
     `;
     document.getElementById("logoutBtn").addEventListener("click", () => {
       localStorage.removeItem("loggedInUser");
+      localStorage.removeItem("loggedInUserName");
       location.reload();
     });
 

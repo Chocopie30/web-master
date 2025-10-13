@@ -1,169 +1,146 @@
- body {
-   margin: 0;
-   font-family: Arial, sans-serif;
-   text-align: center;
-   background-color: #EAEAEA;
- }
-
- header {
-   padding: 20px;
-   padding-top: 10px;
-   font-size: 24px;
-   font-weight: bold;
-   background-color: #A8D5BA;
- }
-
- .logo {
-   display: inline-flex;
-   align-items: center;
-   font-size: 24px;
-   font-weight: bold;
- }
-
- .logo img {
-   width: 25px;
-   /* 아이콘 크기 */
-   height: 24px;
-   margin-right: 6px;
- }
-
- /* 로그인 / 로그아웃 박스 */
- .auth-box {
-   display: flex;
-   justify-content: flex-end;
-   align-items: center;
-   gap: 10px;
-   font-size: 15px;
- }
-
- .auth-box a,
- #logoutBtn {
-   padding: 5px 12px;
-   border-radius: 20px;
-   background-color: #7AC79E;
-   color: #333333;
-   border: 1px solid #7AC79E;
-   text-decoration: none;
-   font-weight: 500;
-   transition: all 0.2s ease-in-out;
- }
-
- .auth-box a:hover,
- #logoutBtn:hover {
-   background-color: #333333;
-   color: #A8D5BA;
-   border: 1px solid #333333;
- }
-
- a {
-   text-decoration: none;
-   color: #333333;
- }
-
- nav {
-   display: flex;
-   justify-content: space-between;
-   /* 좌/우 배치 */
-   align-items: center;
-   background: #61a87e;
-   padding: 10px 30px;
- }
-
- .nav-left,
- .nav-right {
-   display: flex;
-   gap: 15px;
- }
-
- nav a {
-   text-decoration: none;
-   padding: 6px 14px;
-   background: #7AC79E;
-   border-radius: 20px;
-   /* pill 버튼 느낌 */
-   color: #333333;
-   border: 1px solid #7AC79E;
-   font-weight: 500;
-   transition: 0.2s ease-in-out;
- }
-
- nav a:hover {
-   background: #000000;
-   /* hover 시 배경 반전 */
-   border: 1px solid #000000;
-   color: #A8D5BA;
- }
-
- /* 카테고리 드롭다운 */
- .dropdown {
-   position: relative;
- }
-
- .dropdown-content {
-   display: none;
-   position: absolute;
-   top: 40px;
-   left: 0;
-   flex-direction: column;
-   gap: 10px;
-   background: #A8D5BA;
-   padding: 10px;
-   border-radius: 10px;
-   z-index: 100;
- }
-
- .dropdown-content a {
-   background: #7AC79E;
-   border-radius: 10px;
-   padding: 5px 10px;
-   display: block;
- }
-
- .dropdown-content.show {
-   display: flex;
- }
-
-
- .bgcolor {
-   background: #A8D5BA;
- }
-
- /* 제목 */
-.main h2 {
+/* ========= 공통 레이아웃 ========= */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
   text-align: center;
-  font-size: 28px;
-  color: #333;
+  background-color: #EAEAEA;
 }
 
-/* 상품 등록 폼 */
+header {
+  padding: 10px 20px 20px;
+  font-size: 24px;
+  font-weight: bold;
+  background-color: #A8D5BA;
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: #333333;
+  text-decoration: none;
+}
+.logo img {
+  width: 25px; height: 24px; margin-right: 6px;
+}
+
+/* 로그인 / 로그아웃 박스 */
+.auth-box {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+  font-size: 15px;
+}
+.auth-box a,
+#logoutBtn {
+  padding: 5px 12px;
+  border-radius: 20px;
+  background-color: #7AC79E;
+  color: #333333;
+  border: 1px solid #7AC79E;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.2s ease-in-out;
+}
+.auth-box a:hover,
+#logoutBtn:hover {
+  background-color: #333333;
+  color: #A8D5BA;
+  border: 1px solid #333333;
+}
+
+a { text-decoration: none; color: #333333; }
+
+/* 네비게이션 */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #61a87e;
+  padding: 10px 30px;
+}
+.nav-left, .nav-right { display: flex; gap: 15px; }
+nav a {
+  padding: 6px 14px;
+  background: #7AC79E;
+  border-radius: 20px;
+  color: #333333;
+  border: 1px solid #7AC79E;
+  font-weight: 500;
+  transition: 0.2s ease-in-out;
+}
+nav a:hover {
+  background: #000000;
+  border: 1px solid #000000;
+  color: #A8D5BA;
+}
+
+/* 카테고리 드롭다운 */
+.dropdown { position: relative; }
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 40px; left: 0;
+  flex-direction: column; gap: 10px;
+  background: #A8D5BA;
+  padding: 10px; border-radius: 10px; z-index: 100;
+}
+.dropdown-content a {
+  background: #7AC79E;
+  border-radius: 10px;
+  padding: 5px 10px;
+  display: block;
+}
+.dropdown-content.show { display: flex; }
+
+.bgcolor { background: #A8D5BA; }
+
+/* ========= 등록 폼을 '수정 폼' 느낌으로 ========= */
+h2 {
+  font-size: 26px;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 0px;
+    text-align: center;
+    color: #333;
+}
+
+/* 카드 컨테이너 */
 #addProductForm {
+  max-width: 600px;
+  margin: 50px auto;
+  background: #fff;
+  padding: 20px 40px;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  padding: 0 60px;
-  max-width: 70%;
-  margin: 0 auto;
+  gap: 18px;
+  text-align: left;
 }
 
 /* 라벨 + 입력 */
 #addProductForm label {
+  font-size: 15px;
+  font-weight: 600;
+  color: #444;
   display: flex;
   flex-direction: column;
-  font-weight: 600;
-  font-size: 15px;
-  text-align: left;
-  color: #444;
+  gap: 8px;
 }
 
 #addProductForm input,
 #addProductForm select,
 #addProductForm textarea {
-  margin-top: 8px;
+  width: 100%;
   padding: 10px 12px;
   border: 1px solid #7AC79E;
   border-radius: 8px;
   font-size: 15px;
-  transition: border-color 0.2s, box-shadow 0.2s;
+  transition: border-color .2s, box-shadow .2s, background-color .2s;
+  background: #fff;
 }
 
 #addProductForm input:focus,
@@ -177,36 +154,16 @@
 /* 텍스트 영역 */
 #addProductForm textarea {
   resize: vertical;
-  min-height: 100px;
+  min-height: 110px;
 }
 
-/* 버튼 */
-#addProductForm button {
-  align-self: flex-end;
-  padding: 10px 18px;
-  background: #7AC79E;
-  border: none;
-  border-radius: 8px;
-  font-size: 16px;
-  font-weight: bold;
-  color: #333;
-  cursor: pointer;
-  transition: background 0.2s, color 0.2s;
-}
-
-#addProductForm button:hover {
-  background: #333;
-  color: #A8D5BA;
-}
-
-/* 파일 업로드 input */
+/* 파일 업로드 */
 #addProductForm input[type="file"] {
   padding: 6px;
   border: 1px dashed #7AC79E;
   background: #f9f9f9;
   cursor: pointer;
 }
-
 #addProductForm input[type="file"]::-webkit-file-upload-button {
   padding: 6px 12px;
   border: none;
@@ -214,16 +171,42 @@
   color: #333;
   border-radius: 6px;
   cursor: pointer;
-  transition: background 0.2s;
+  transition: background .2s;
 }
-
 #addProductForm input[type="file"]::-webkit-file-upload-button:hover {
   background: #333;
   color: #A8D5BA;
 }
 
- footer {
-   margin-top: 40px;
-   padding: 20px;
-   border-top: 1px solid #7AC79E;
- }
+/* 제출 버튼 */
+#addProductForm button {
+  padding: 12px 18px;
+  background: #7AC79E;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  cursor: pointer;
+  transition: background .2s, color .2s, transform .12s;
+}
+#addProductForm button:hover {
+  background: #333;
+  color: #A8D5BA;
+  transform: translateY(-1px);
+}
+
+/* 푸터 */
+footer {
+  margin-top: 40px;
+  padding: 20px;
+  border-top: 1px solid #7AC79E;
+}
+
+/* 반응형 */
+@media (max-width: 640px) {
+  #addProductForm {
+    margin: 12px 16px 40px;
+    padding: 18px;
+  }
+}
