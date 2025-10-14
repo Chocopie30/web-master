@@ -1,4 +1,4 @@
-// 카테고리
+// ----------------- 카테고리 드롭다운 -----------------
 document.getElementById("category-btn").addEventListener("click", function () {
   document.getElementById("category-menu").classList.toggle("show");
 });
@@ -8,6 +8,14 @@ window.addEventListener("click", function (e) {
   if (!e.target.matches("#category-btn")) {
     document.getElementById("category-menu").classList.remove("show");
   }
+});
+
+// ----------------- 카테고리 클릭 시 localStorage에 저장 -----------------
+document.querySelectorAll("#category-menu a").forEach(link => {
+  link.addEventListener("click", function () {
+    const cateNo = this.getAttribute("data-cate");
+    localStorage.setItem("selectedCategory", cateNo);
+  });
 });
 
 // ----------------- 로그인 상태 확인 -----------------
@@ -43,7 +51,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
 // ----------------- 주문 내역 불러오기 -----------------
 function loadOrders(buyerId) {
-  fetch(`http://localhost:3000/orders?buyerId=${buyerId}`)
+  fetch(`http://192.168.0.17:3000/orders?buyerId=${buyerId}`)
     .then(res => res.json())
     .then(result => {
       const orderList = document.querySelector(".order-list");
@@ -74,11 +82,3 @@ function loadOrders(buyerId) {
       alert("주문 내역을 불러오는 중 오류가 발생했습니다.");
     });
 }
-
-// ----------------- 카테고리 클릭 시 localStorage에 저장 -----------------
-document.querySelectorAll("#category-menu a").forEach(link => {
-  link.addEventListener("click", function () {
-    const cateNo = this.getAttribute("data-cate");
-    localStorage.setItem("selectedCategory", cateNo);
-  });
-});

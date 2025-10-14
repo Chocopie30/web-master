@@ -23,7 +23,7 @@
     idInput.value = userId;
 
     try {
-      const res = await fetch(`http://localhost:3000/user/profile?userId=${encodeURIComponent(userId)}`);
+      const res = await fetch(`http://192.168.0.17:3000/user/profile?userId=${encodeURIComponent(userId)}`);
       const result = await res.json();
       if (!res.ok || !result?.success) {
         alert(result?.message || '회원 정보를 불러오지 못했습니다.');
@@ -67,7 +67,7 @@
     if (userPw) payload.userPw = userPw; // 새 비번 입력 시에만 전송
 
     try {
-      const res = await fetch('http://localhost:3000/user/profile', {
+      const res = await fetch('http://192.168.0.17:3000/user/profile', {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json;charset=utf-8' },
         body: JSON.stringify(payload),

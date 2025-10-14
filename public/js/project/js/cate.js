@@ -9,6 +9,14 @@ window.addEventListener("click", function (e) {
   }
 });
 
+// ----------------- 카테고리 클릭 시 localStorage에 저장 -----------------
+document.querySelectorAll("#category-menu a").forEach(link => {
+  link.addEventListener("click", function () {
+    const cateNo = this.getAttribute("data-cate");
+    localStorage.setItem("selectedCategory", cateNo);
+  });
+});
+
 // ----------------- 로그인 상태, 로그아웃 -----------------
 window.addEventListener("DOMContentLoaded", () => {
   const loggedInUser = localStorage.getItem("loggedInUser");
@@ -44,7 +52,7 @@ const categoryMap = {
 
 // ----------------- 카테고리 상품 로드 -----------------
 function loadCategoryProducts(cateId) {
-  fetch(`http://localhost:3000/products/category/${cateId}`)
+  fetch(`http://192.168.0.17:3000/products/category/${cateId}`)
     .then(res => res.json())
     .then(result => {
       const productsContainer = document.querySelector(".products-container");
@@ -88,7 +96,7 @@ function loadCategoryProducts(cateId) {
 
 // ----------------- 카테고리 내 검색 -----------------
 function searchProducts(cateId, keyword) {
-  fetch(`http://localhost:3000/products/category/${cateId}/search?keyword=${encodeURIComponent(keyword)}`)
+  fetch(`http://192.168.0.17:3000/products/category/${cateId}/search?keyword=${encodeURIComponent(keyword)}`)
     .then(res => res.json())
     .then(result => {
       const productsContainer = document.querySelector(".products-container");
@@ -157,13 +165,5 @@ window.addEventListener("DOMContentLoaded", () => {
       const keyword = e.target.value.trim();
       if (keyword) searchProducts(cateId, keyword);
     }
-  });
-});
-
-// ----------------- 카테고리 클릭 시 localStorage에 저장 -----------------
-document.querySelectorAll("#category-menu a").forEach(link => {
-  link.addEventListener("click", function () {
-    const cateNo = this.getAttribute("data-cate");
-    localStorage.setItem("selectedCategory", cateNo);
   });
 });

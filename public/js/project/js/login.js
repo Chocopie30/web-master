@@ -10,7 +10,7 @@ document.forms[0].addEventListener('submit', async function (e) {
   }
 
   try {
-    const res = await fetch("http://localhost:3000/login", {
+    const res = await fetch("http://192.168.0.17:3000/login", {
       method: "POST",
       headers: { "Content-Type": "application/json;charset=utf-8" },
       body: JSON.stringify({ userId, userPw })
@@ -31,7 +31,7 @@ document.forms[0].addEventListener('submit', async function (e) {
     } else {
       // ✅ 2순위(보조요청): 프로필 조회해서 이름 저장 (엔드포인트 예시)
       try {
-        const profRes = await fetch(`http://localhost:3000/user/profile?userId=${encodeURIComponent(userId)}`);
+        const profRes = await fetch(`http://192.168.0.17:3000/user/profile?userId=${encodeURIComponent(userId)}`);
         if (profRes.ok) {
           const prof = await profRes.json();
           if (prof?.success && prof?.data?.userName) {

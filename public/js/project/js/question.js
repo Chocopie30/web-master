@@ -1,5 +1,3 @@
-// question.js (최종)
-
 // ----------------- 페이지 접근 차단 -----------------
 const loggedInUser = localStorage.getItem("loggedInUser");
 if (!loggedInUser) {
@@ -54,22 +52,17 @@ window.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // ---------- 카테고리 드롭다운 ----------
-  const categoryBtn = document.getElementById("category-btn");
-  const categoryMenu = document.getElementById("category-menu");
-  if (categoryBtn && categoryMenu) {
-    categoryBtn.addEventListener("click", (e) => {
-      e.stopPropagation();
-      categoryMenu.classList.toggle("show");
-    });
-    window.addEventListener("click", () => categoryMenu.classList.remove("show"));
-    document.querySelectorAll("#category-menu a").forEach((link) => {
-      link.addEventListener("click", function () {
-        const cateNo = this.getAttribute("data-cate");
-        if (cateNo) localStorage.setItem("selectedCategory", cateNo);
-      });
-    });
+  // ----------------- 카테고리 드롭다운 -----------------
+document.getElementById("category-btn").addEventListener("click", function () {
+  document.getElementById("category-menu").classList.toggle("show");
+});
+
+// 다른 곳 클릭 시 메뉴 닫기
+window.addEventListener("click", function (e) {
+  if (!e.target.matches("#category-btn")) {
+    document.getElementById("category-menu").classList.remove("show");
   }
+});
 
   // ---------- 질문 폼 제출 ----------
   const form = document.getElementById("questionForm");
@@ -86,7 +79,7 @@ window.addEventListener("DOMContentLoaded", () => {
       }
 
       try {
-        const res = await fetch("http://localhost:3000/question", {
+        const res = await fetch("http://192.168.0.17:3000/question", {
           method: "POST",
           headers: {
             "Content-Type": "application/json"
@@ -119,4 +112,12 @@ window.addEventListener("DOMContentLoaded", () => {
       window.location.href = "qna.html";
     });
   }
+});
+
+// ----------------- 카테고리 클릭 시 localStorage에 저장 -----------------
+document.querySelectorAll("#category-menu a").forEach(link => {
+  link.addEventListener("click", function () {
+    const cateNo = this.getAttribute("data-cate");
+    localStorage.setItem("selectedCategory", cateNo);
+  });
 });

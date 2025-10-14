@@ -166,7 +166,7 @@ nav a:hover {
   gap: 15px;
   width: 100%;
   max-width: 1000px;   /* 상품 카드와 맞춤 */
-  margin: 20px auto;   /* 가운데 정렬 */
+  margin: 5px auto;   /* 가운데 정렬 */
   padding: 0 10px;
 }
 

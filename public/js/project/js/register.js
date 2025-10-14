@@ -7,7 +7,7 @@ document.forms[0].addEventListener('submit', function (e) {
   let userTel = document.querySelector('#userTel').value.trim();
   let userAddress = document.querySelector('#userAddress').value.trim();
 
-  fetch("http://localhost:3000/user", {
+  fetch("http://192.168.0.17:3000/user", {
       method: "POST",
       headers: {
         "Content-Type": "application/json;charset=utf-8"

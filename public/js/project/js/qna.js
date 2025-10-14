@@ -1,9 +1,51 @@
-// qna.js (수정 완성본)
+// ----------------- 카테고리 드롭다운 -----------------
+document.getElementById("category-btn").addEventListener("click", function (e) {
+  e.stopPropagation();
+  document.getElementById("category-menu").classList.toggle("show");
+});
+
+window.addEventListener("click", function () {
+  document.getElementById("category-menu").classList.remove("show");
+});
+
+// ----------------- 카테고리 클릭 시 localStorage에 저장 -----------------
+document.querySelectorAll("#category-menu a").forEach(link => {
+  link.addEventListener("click", function () {
+    const cateNo = this.getAttribute("data-cate");
+    localStorage.setItem("selectedCategory", cateNo);
+  });
+});
+
+// ----------------- 로그인 상태, 로그아웃 -----------------
+window.addEventListener("DOMContentLoaded", () => {
+  const loggedInUser = localStorage.getItem("loggedInUser");
+  const loggedInUserName = localStorage.getItem("loggedInUserName");
+  const authBox = document.querySelector(".auth-box");
+
+  if (loggedInUser) {
+    authBox.innerHTML = `
+      <span>🎈${loggedInUserName}</span>
+      <a href="infoEdit.html">정보수정</a>
+      <a href="#" id="logoutBtn">로그아웃</a>
+    `;
+
+    document.getElementById("logoutBtn").addEventListener("click", () => {
+      localStorage.removeItem("loggedInUser");
+      localStorage.removeItem("loggedInUserName");
+      location.reload();
+    });
+  } else {
+    authBox.innerHTML = `
+      <a href="register.html">회원가입</a>
+      <a href="login.html">로그인</a>
+    `;
+  }
+});
 
 // ----------------- Q&A 데이터 불러오기 -----------------
 async function loadQnA() {
   try {
-    const response = await fetch("http://localhost:3000/qna");
+    const response = await fetch("http://192.168.0.17:3000/qna");
     const result = await response.json();
 
     if (!result.success) {
@@ -16,14 +58,16 @@ async function loadQnA() {
     // 기존 데이터 초기화 (헤더 행은 남김)
     table.querySelectorAll("tr:not(:first-child)").forEach(tr => tr.remove());
 
-    result.data.forEach(item => {
+    result.data.forEach((item,index) => {
       const hasAnswer = Array.isArray(item.answers) && item.answers.length > 0;
+      const displayNo = index + 1;
 
       // 질문 행
       const qRow = document.createElement("tr");
       qRow.classList.add("accordion");
+      qRow.dataset.qno = item.qNo;
       qRow.innerHTML = `
-        <td>${item.qNo}</td>
+        <td>${displayNo}</td>
         <td>${escapeHtml(item.qTitle)}</td>
         <td>${escapeHtml(item.qWriter)}</td>
       `;
@@ -70,7 +114,6 @@ async function loadQnA() {
         }
       });
     });
-
 
     // ----------------- 답변하기 버튼 기능 -----------------
     document.querySelectorAll(".answer-btn").forEach(btn => {
@@ -124,7 +167,7 @@ async function loadQnA() {
           }
 
           try {
-            const res = await fetch("http://localhost:3000/answer", {
+            const res = await fetch("http://192.168.0.17:3000/answer", {
               method: "POST",
               headers: {
                 "Content-Type": "application/json;charset=utf-8"
@@ -171,44 +214,8 @@ async function loadQnA() {
   }
 }
 
-// ----------------- 카테고리 드롭다운 -----------------
-document.getElementById("category-btn").addEventListener("click", function (e) {
-  e.stopPropagation();
-  document.getElementById("category-menu").classList.toggle("show");
-});
-
-window.addEventListener("click", function () {
-  document.getElementById("category-menu").classList.remove("show");
-});
-
 // ----------------- 페이지 로드 시 Q&A 불러오기 -----------------
 window.addEventListener("DOMContentLoaded", loadQnA);
-
-// ----------------- 로그인 상태, 로그아웃 -----------------
-window.addEventListener("DOMContentLoaded", () => {
-  const loggedInUser = localStorage.getItem("loggedInUser");
-  const loggedInUserName = localStorage.getItem("loggedInUserName");
-  const authBox = document.querySelector(".auth-box");
-
-  if (loggedInUser) {
-    authBox.innerHTML = `
-      <span>🎈${loggedInUserName}</span>
-      <a href="infoEdit.html">정보수정</a>
-      <a href="#" id="logoutBtn">로그아웃</a>
-    `;
-
-    document.getElementById("logoutBtn").addEventListener("click", () => {
-      localStorage.removeItem("loggedInUser");
-      localStorage.removeItem("loggedInUserName");
-      location.reload();
-    });
-  } else {
-    authBox.innerHTML = `
-      <a href="register.html">회원가입</a>
-      <a href="login.html">로그인</a>
-    `;
-  }
-});
 
 // ----------------- 질문하기 버튼 클릭 시 -----------------
 const qBtn = document.querySelector('#qeustion_btn');
@@ -235,11 +242,3 @@ function escapeHtml(str) {
     .replace(/"/g, "&quot;")
     .replace(/'/g, "&#039;");
 }
-
-// ----------------- 카테고리 클릭 시 localStorage에 저장 -----------------
-document.querySelectorAll("#category-menu a").forEach(link => {
-  link.addEventListener("click", function () {
-    const cateNo = this.getAttribute("data-cate");
-    localStorage.setItem("selectedCategory", cateNo);
-  });
-});

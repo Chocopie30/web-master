@@ -1,18 +1,22 @@
-// =========================
-// edit.js (완성본)
-// =========================
-
 // ----------------- 카테고리 드롭다운 -----------------
-(() => {
-  const btn = document.getElementById("category-btn");
-  const menu = document.getElementById("category-menu");
-  if (btn && menu) {
-    btn.addEventListener("click", () => menu.classList.toggle("show"));
-    window.addEventListener("click", (e) => {
-      if (!e.target.matches("#category-btn")) menu.classList.remove("show");
-    });
+document.getElementById("category-btn").addEventListener("click", function () {
+  document.getElementById("category-menu").classList.toggle("show");
+});
+
+// 다른 곳 클릭 시 메뉴 닫기
+window.addEventListener("click", function (e) {
+  if (!e.target.matches("#category-btn")) {
+    document.getElementById("category-menu").classList.remove("show");
   }
-})();
+});
+
+// ----------------- 카테고리 클릭 시 localStorage에 저장 -----------------
+document.querySelectorAll("#category-menu a").forEach(link => {
+  link.addEventListener("click", function () {
+    const cateNo = this.getAttribute("data-cate");
+    localStorage.setItem("selectedCategory", cateNo);
+  });
+});
 
 // ----------------- 로그인 상태 확인 및 로그아웃 -----------------
 window.addEventListener("DOMContentLoaded", () => {
@@ -78,7 +82,7 @@ fileInput?.addEventListener("change", (e) => {
 // ----------------- 상품 로드 -----------------
 async function loadProduct() {
   try {
-    const res = await fetch(`http://localhost:3000/products/${prodNo}`);
+    const res = await fetch(`http://192.168.0.17:3000/products/${prodNo}`);
     const result = await res.json();
     if (!res.ok || !result.success) throw new Error(result.message || "상품 조회 실패");
 
@@ -142,7 +146,7 @@ form?.addEventListener("submit", async (e) => {
   }
 
   try {
-    const res = await fetch(`http://localhost:3000/products/${prodNo}`, {
+    const res = await fetch(`http://192.168.0.17:3000/products/${prodNo}`, {
       method: "PUT",
       body: fd, // FormData 사용 시 Content-Type 수동 지정 금지
     });
@@ -158,14 +162,6 @@ form?.addEventListener("submit", async (e) => {
     console.error("상품 수정 오류:", err);
     alert("상품 수정 중 오류가 발생했습니다.");
   }
-});
-
-// ----------------- 카테고리 클릭 시 localStorage에 저장 -----------------
-document.querySelectorAll("#category-menu a").forEach(link => {
-  link.addEventListener("click", function () {
-    const cateNo = this.getAttribute("data-cate");
-    localStorage.setItem("selectedCategory", cateNo);
-  });
 });
 
 // ----------------- 초기 로드 -----------------

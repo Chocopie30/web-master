@@ -32,7 +32,7 @@
     }
 
     try {
-      const res = await fetchWithTimeout('http://localhost:3000/user/find-id', {
+      const res = await fetchWithTimeout('http://192.168.0.17:3000/user/find-id', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json;charset=utf-8' },
         body: JSON.stringify({ userName: name, userTel: tel }),
@@ -68,7 +68,7 @@
     }
 
     try {
-      const res = await fetchWithTimeout('http://localhost:3000/user/find-pw', {
+      const res = await fetchWithTimeout('http://192.168.0.17:3000/user/find-pw', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json;charset=utf-8' },
         body: JSON.stringify({ userId, userName: name }),

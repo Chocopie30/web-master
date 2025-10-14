@@ -8,6 +8,14 @@ window.addEventListener("click", function (e) {
   }
 });
 
+// ----------------- 카테고리 클릭 시 localStorage에 저장 -----------------
+document.querySelectorAll("#category-menu a").forEach(link => {
+  link.addEventListener("click", function () {
+    const cateNo = this.getAttribute("data-cate");
+    localStorage.setItem("selectedCategory", cateNo);
+  });
+});
+
 // ----------------- 로그인 상태 확인 및 로그아웃 -----------------
 window.addEventListener("DOMContentLoaded", () => {
   const loggedInUser = localStorage.getItem("loggedInUser");
@@ -97,7 +105,7 @@ function setSoldOutUI(isSoldOut) {
 
 // ----------------- 상품 상세 불러오기 -----------------
 function loadProduct() {
-  fetch(`http://localhost:3000/products/${prodNo}`)
+  fetch(`http://192.168.0.17:3000/products/${prodNo}`)
     .then(res => res.json())
     .then(result => {
       if (!result.success) throw new Error(result.message || "상품 정보를 불러오지 못했습니다.");
@@ -158,7 +166,7 @@ document.getElementById("orderBtn").addEventListener("click", () => {
     ordSeller: product.PRODSELLER
   };
 
-  fetch("http://localhost:3000/orders", {
+  fetch("http://192.168.0.17:3000/orders", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(orderData)
@@ -219,7 +227,7 @@ if (deleteBtn) {
     if (!ok) return;
 
     try {
-      const res = await fetch(`http://localhost:3000/products/${prodNo}`, {
+      const res = await fetch(`http://192.168.0.17:3000/products/${prodNo}`, {
         method: "DELETE",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ seller: loggedInUser })
@@ -238,14 +246,6 @@ if (deleteBtn) {
     }
   });
 }
-
-// ----------------- 카테고리 클릭 시 localStorage에 저장 -----------------
-document.querySelectorAll("#category-menu a").forEach(link => {
-  link.addEventListener("click", function () {
-    const cateNo = this.getAttribute("data-cate");
-    localStorage.setItem("selectedCategory", cateNo);
-  });
-});
 
 // ----------------- 초기 로드 -----------------
 document.addEventListener("DOMContentLoaded", loadProduct);

@@ -9,6 +9,14 @@ window.addEventListener("click", function (e) {
   }
 });
 
+// ----------------- 카테고리 클릭 시 localStorage에 저장 -----------------
+document.querySelectorAll("#category-menu a").forEach(link => {
+  link.addEventListener("click", function () {
+    const cateNo = this.getAttribute("data-cate");
+    localStorage.setItem("selectedCategory", cateNo);
+  });
+});
+
 // ----------------- 로그인 상태 확인 및 로그아웃 -----------------
 window.addEventListener("DOMContentLoaded", () => {
   const loggedInUser = localStorage.getItem("loggedInUser");
@@ -34,14 +42,6 @@ window.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-// ----------------- 카테고리 클릭 시 localStorage에 저장 -----------------
-document.querySelectorAll("#category-menu a").forEach(link => {
-  link.addEventListener("click", function () {
-    const cateNo = this.getAttribute("data-cate");
-    localStorage.setItem("selectedCategory", cateNo);
-  });
-});
-
 // ----------------- 상품 등록 -----------------
 document.getElementById("addProductForm").addEventListener("submit", async (e) => {
   e.preventDefault();
@@ -58,7 +58,7 @@ document.getElementById("addProductForm").addEventListener("submit", async (e) =
   formData.append("prodSeller", loggedInUser); // ✅ 판매자 아이디 추가
 
   try {
-    const res = await fetch("http://localhost:3000/products", {
+    const res = await fetch("http://192.168.0.17:3000/products", {
       method: "POST",
       body: formData,
     });
@@ -66,11 +66,8 @@ document.getElementById("addProductForm").addEventListener("submit", async (e) =
     const result = await res.json();
 
     if (result.success) {
-      alert("상품이 등록되었습니다!");
-      // ✅ alert 확인 후 이동되도록 setTimeout 사용
-      setTimeout(() => {
-        window.location.href = "main.html";
-      }, 150);
+      // alert("상품이 등록되었습니다!");
+      window.location.href = "main.html";
     } else {
       alert("상품 등록 실패: " + (result.message || "서버 오류"));
     }
